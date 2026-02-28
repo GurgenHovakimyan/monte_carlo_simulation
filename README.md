@@ -33,12 +33,12 @@
 
 Financial institutions, investors, and policymakers operating in the Armenian economy face two primary sources of macroeconomic risk:
 
-1. **Exchange Rate Risk** — fluctuations in the USD/AMD exchange rate directly impact the cost of imports, foreign-denominated debt servicing, and the value of cross-border investments.
-2. **Interest Rate Risk** — changes in the Central Bank of Armenia (CBA) refinancing rate ripple through the entire financial system, affecting lending rates, bond prices, government securities yields, and monetary policy transmission.
+1. **Exchange Rate Risk** - fluctuations in the USD/AMD exchange rate directly impact the cost of imports, foreign-denominated debt servicing, and the value of cross-border investments.
+2. **Interest Rate Risk** - changes in the Central Bank of Armenia (CBA) refinancing rate ripple through the entire financial system, affecting lending rates, bond prices, government securities yields, and monetary policy transmission.
 
 **The central question this study addresses:**
 
-> *What is the maximum expected loss — at various confidence levels — that a portfolio exposed to both USD/AMD exchange rate movements and CBA refinancing rate changes could sustain over a one-year horizon?*
+> *What is the maximum expected loss - at various confidence levels - that a portfolio exposed to both USD/AMD exchange rate movements and CBA refinancing rate changes could sustain over a one-year horizon?*
 
 To answer this, we employ **Monte Carlo simulation** to estimate **Value at Risk (VaR)** and **Expected Shortfall (CVaR)** for individual risk factors and a combined portfolio.
 
@@ -50,10 +50,10 @@ To answer this, we employ **Monte Carlo simulation** to estimate **Value at Risk
 
 The **refinancing rate** is the key policy rate set by the Central Bank of Armenia. It serves as:
 
-- **The benchmark for all monetary operations** — commercial banks borrow from the CBA at this rate, making it the floor for the entire interest rate structure in the economy.
-- **An inflation-targeting tool** — the CBA adjusts the refinancing rate to steer inflation toward its target (currently ~4%).
-- **A signal of monetary policy stance** — changes in the refinancing rate signal whether the CBA is tightening or easing, directly influencing business investment decisions and consumer credit.
-- **A determinant of bond prices** — when the refinancing rate rises, the market value of existing fixed-income securities falls (and vice versa), creating interest rate risk for banks and institutional investors.
+- **The benchmark for all monetary operations** - commercial banks borrow from the CBA at this rate, making it the floor for the entire interest rate structure in the economy.
+- **An inflation-targeting tool** - the CBA adjusts the refinancing rate to steer inflation toward its target (currently ~4%).
+- **A signal of monetary policy stance** - changes in the refinancing rate signal whether the CBA is tightening or easing, directly influencing business investment decisions and consumer credit.
+- **A determinant of bond prices** - when the refinancing rate rises, the market value of existing fixed-income securities falls (and vice versa), creating interest rate risk for banks and institutional investors.
 
 Since 2004, the CBA refinancing rate has ranged from **3.00%** (during periods of aggressive easing) to **10.75%** (during inflationary shocks). This wide band demonstrates the significant interest rate risk present in the Armenian financial system.
 
@@ -61,19 +61,19 @@ Since 2004, the CBA refinancing rate has ranged from **3.00%** (during periods o
 
 Armenia is a small, open economy with significant dollarization. The USD/AMD rate is critical because:
 
-- **Trade dependence** — Armenia imports a large share of goods priced in USD. A depreciating AMD increases import costs and domestic inflation.
-- **Remittance flows** — a major source of foreign currency inflows. Exchange rate changes directly affect household income.
-- **Foreign debt** — a substantial portion of public and private debt is denominated in USD. AMD depreciation increases the real burden of servicing this debt.
-- **Financial stability** — rapid FX moves can trigger deposit flight, liquidity crises, and bank solvency concerns.
+- **Trade dependence** - Armenia imports a large share of goods priced in USD. A depreciating AMD increases import costs and domestic inflation.
+- **Remittance flows** - a major source of foreign currency inflows. Exchange rate changes directly affect household income.
+- **Foreign debt** - a substantial portion of public and private debt is denominated in USD. AMD depreciation increases the real burden of servicing this debt.
+- **Financial stability** - rapid FX moves can trigger deposit flight, liquidity crises, and bank solvency concerns.
 
 ### Why Traditional Methods Fall Short
 
 Classical parametric VaR assumes returns follow a **normal distribution**. However, financial return series typically exhibit:
 
-- **Fat tails (leptokurtosis)** — extreme events occur far more frequently than a Gaussian model predicts
-- **Skewness** — the distribution of returns is asymmetric
-- **Volatility clustering** — periods of high volatility tend to persist
-- **Regime changes** — structural breaks in policy or external shocks invalidate stationary assumptions
+- **Fat tails (leptokurtosis)** - extreme events occur far more frequently than a Gaussian model predicts
+- **Skewness** - the distribution of returns is asymmetric
+- **Volatility clustering** - periods of high volatility tend to persist
+- **Regime changes** - structural breaks in policy or external shocks invalidate stationary assumptions
 
 Our historical data confirms this: USD/AMD daily log returns exhibit a **kurtosis of ~1,055** (vs. 3 for a normal distribution), making parametric VaR dangerously unreliable. Monte Carlo simulation provides a distribution-free alternative that naturally captures these features.
 
@@ -123,7 +123,7 @@ CVaR answers: *"Given that we are in the worst $(1-\alpha)$% of scenarios, what 
 
 **Properties:**
 - CVaR is a **coherent risk measure** (subadditive, monotone, positive homogeneous, translation invariant)
-- Always $\text{CVaR}_\alpha \geq \text{VaR}_\alpha$ — it provides a more conservative estimate
+- Always $\text{CVaR}_\alpha \geq \text{VaR}_\alpha$ - it provides a more conservative estimate
 - Preferred by regulators under the Basel III Fundamental Review of the Trading Book (FRTB)
 
 ### 3.3 Monte Carlo Simulation
@@ -154,7 +154,7 @@ Monte Carlo is the most flexible approach because it can:
 
 ## 4. Mathematical Models
 
-### 4.1 Geometric Brownian Motion (GBM) — Exchange Rate
+### 4.1 Geometric Brownian Motion (GBM) - Exchange Rate
 
 The USD/AMD exchange rate $S_t$ is modeled as a Geometric Brownian Motion:
 
@@ -189,7 +189,7 @@ The GBM model ensures:
 | Annualized drift | $\mu_{ann}$ | −0.0184 | per year |
 | Annualized volatility | $\sigma_{ann}$ | 6.42% | per year |
 
-### 4.2 Vasicek Model — Refinancing Rate
+### 4.2 Vasicek Model - Refinancing Rate
 
 The CBA refinancing rate $r_t$ is modeled using the **Vasicek (1977)** mean-reversion model:
 
@@ -198,8 +198,8 @@ dr_t = \kappa(\theta - r_t)\, dt + \sigma_r \, dW_t^{(2)}
 $$
 
 where:
-- $\kappa > 0$ is the **speed of mean reversion** — how quickly the rate reverts to its long-run level
-- $\theta$ is the **long-run equilibrium rate** — the level to which the rate tends over time
+- $\kappa > 0$ is the **speed of mean reversion** - how quickly the rate reverts to its long-run level
+- $\theta$ is the **long-run equilibrium rate** - the level to which the rate tends over time
 - $\sigma_r$ is the **volatility** of rate innovations
 - $W_t^{(2)}$ is a standard Wiener process
 
@@ -214,7 +214,7 @@ where $Z_2 \sim \mathcal{N}(0, 1)$.
 **Key properties of the Vasicek model:**
 - **Mean-reversion:** When $r_t > \theta$, the drift is negative (rate decreases); when $r_t < \theta$, the drift is positive (rate increases). This captures the stylized fact that central banks adjust rates back toward equilibrium.
 - **Stationary distribution:** As $t \to \infty$, $r_t \sim \mathcal{N}\left(\theta, \frac{\sigma_r^2}{2\kappa}\right)$
-- **Half-life of reversion:** $t_{1/2} = \frac{\ln 2}{\kappa}$ — the time for a deviation from $\theta$ to halve.
+- **Half-life of reversion:** $t_{1/2} = \frac{\ln 2}{\kappa}$ - the time for a deviation from $\theta$ to halve.
 - **Known limitation:** Rates can become negative. We impose a floor at 0%.
 
 **Parameter estimation** via OLS regression on $\Delta r_t = a + b \cdot r_{t-1} + \varepsilon_t$:
@@ -231,9 +231,9 @@ $$
 | Long-run equilibrium | $\theta$ | 6.55% | Long-run policy rate |
 | Rate volatility | $\sigma_r$ | 0.5821 | Per-step volatility |
 
-### 4.3 Correlated Dynamics — Cholesky Decomposition
+### 4.3 Correlated Dynamics - Cholesky Decomposition
 
-The exchange rate and refinancing rate are not independent — monetary tightening (higher refinancing rate) can strengthen the AMD (lower USD/AMD), implying a negative correlation. To capture this **joint behavior**, we generate correlated random shocks using **Cholesky decomposition**.
+The exchange rate and refinancing rate are not independent - monetary tightening (higher refinancing rate) can strengthen the AMD (lower USD/AMD), implying a negative correlation. To capture this **joint behavior**, we generate correlated random shocks using **Cholesky decomposition**.
 
 Given the correlation matrix:
 
@@ -287,7 +287,7 @@ The negative sign confirms the expected economic relationship: when FX rates mov
 | 95th Percentile | 0.0029 | 0.00 |
 | 99th Percentile | 0.0072 | 0.00 |
 
-> **Observation:** Both series exhibit **extreme leptokurtosis** (excess kurtosis >> 0) and **significant skewness**. This confirms that a Gaussian assumption would severely underestimate tail risk. The refinancing rate change distribution is heavily concentrated at zero (rate unchanged on most days) with occasional large discrete jumps — a typical feature of policy rates.
+> **Observation:** Both series exhibit **extreme leptokurtosis** (excess kurtosis >> 0) and **significant skewness**. This confirms that a Gaussian assumption would severely underestimate tail risk. The refinancing rate change distribution is heavily concentrated at zero (rate unchanged on most days) with occasional large discrete jumps - a typical feature of policy rates.
 
 ---
 
@@ -349,7 +349,7 @@ This represents the value of a **1 USD position converted to AMD**, earning the 
 | Number of Simulations | **10,000** |
 | Random Seed | 42 |
 
-### 7.2 VaR & CVaR — USD/AMD Exchange Rate
+### 7.2 VaR & CVaR - USD/AMD Exchange Rate
 
 | Confidence | VaR (AMD) | VaR (%) | CVaR (AMD) | CVaR (%) |
 |:----------:|:---------:|:-------:|:----------:|:--------:|
@@ -359,7 +359,7 @@ This represents the value of a **1 USD position converted to AMD**, earning the 
 
 **Interpretation:** At the 95% confidence level, the USD/AMD rate is not expected to depreciate by more than **44.52 AMD** (from 377 → ~332 AMD/USD) over the next year. If the VaR threshold is breached (5% worst cases), the average loss is **52.90 AMD** (CVaR).
 
-### 7.3 VaR & CVaR — CBA Refinancing Rate
+### 7.3 VaR & CVaR - CBA Refinancing Rate
 
 | Confidence | VaR (pp) | VaR (bps) | CVaR (pp) |
 |:----------:|:--------:|:---------:|:---------:|
@@ -369,7 +369,7 @@ This represents the value of a **1 USD position converted to AMD**, earning the 
 
 **Interpretation:** At 95% confidence, the refinancing rate will not drop by more than **2.74 percentage points** (from 6.50% → ~3.76%). At 99%, the worst-case decline is **4.02 pp** (rate could fall to ~2.48%).
 
-### 7.4 VaR & CVaR — Combined Portfolio (FX + Rate Risk)
+### 7.4 VaR & CVaR - Combined Portfolio (FX + Rate Risk)
 
 | Confidence | VaR (AMD) | VaR (%) | CVaR (AMD) | CVaR (%) |
 |:----------:|:---------:|:-------:|:----------:|:--------:|
@@ -398,9 +398,9 @@ This represents the value of a **1 USD position converted to AMD**, earning the 
 
 2. **At 99% confidence**, the worst-case portfolio loss is **15.89%** (~63.80 AMD)
 
-3. **Diversification benefit:** The **negative correlation** ($\rho = -0.051$) between FX and refinancing rate provides a small natural hedge — the combined portfolio VaR is slightly less than the sum of individual VaRs. Economically, this makes sense: when the CBA raises rates (positive for rate risk), it tends to strengthen the AMD (positive for FX risk), partially offsetting losses.
+3. **Diversification benefit:** The **negative correlation** ($\rho = -0.051$) between FX and refinancing rate provides a small natural hedge - the combined portfolio VaR is slightly less than the sum of individual VaRs. Economically, this makes sense: when the CBA raises rates (positive for rate risk), it tends to strengthen the AMD (positive for FX risk), partially offsetting losses.
 
-4. **Fat tails matter:** Historical kurtosis exceeding 1,000 for FX returns validates the Monte Carlo approach. A parametric Normal VaR would estimate the 99% FX loss at only ~$3.1\sigma \approx 28$ AMD — roughly **half** of our Monte Carlo estimate of 57.91 AMD. Relying on parametric assumptions would dangerously underestimate tail risk.
+4. **Fat tails matter:** Historical kurtosis exceeding 1,000 for FX returns validates the Monte Carlo approach. A parametric Normal VaR would estimate the 99% FX loss at only ~$3.1\sigma \approx 28$ AMD - roughly **half** of our Monte Carlo estimate of 57.91 AMD. Relying on parametric assumptions would dangerously underestimate tail risk.
 
 5. **Mean reversion in interest rates:** The Vasicek model's estimated half-life of ~11.8 years implies that the refinancing rate reverts slowly to its 6.55% equilibrium, allowing significant deviations within the 1-year horizon.
 
@@ -489,7 +489,7 @@ python monte_carlo_var.py
 4. **Artzner, P., Delbaen, F., Eber, J.-M., & Heath, D.** (1999). "Coherent Measures of Risk." *Mathematical Finance*, 9(3), 203–228.
 5. **Hull, J. C.** (2018). *Options, Futures, and Other Derivatives*. 10th ed., Pearson.
 6. **Basel Committee on Banking Supervision** (2019). "Minimum capital requirements for market risk." Bank for International Settlements.
-7. **Central Bank of Armenia** — [https://www.cba.am](https://www.cba.am) — Data source for refinancing rate and official exchange rates.
+7. **Central Bank of Armenia** - [https://www.cba.am](https://www.cba.am) - Data source for refinancing rate and official exchange rates.
 
 ---
 
