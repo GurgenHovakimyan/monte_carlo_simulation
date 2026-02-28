@@ -498,5 +498,3 @@ python monte_carlo_var.py
 This project is for educational and research purposes at **Yerevan State University of Economics (YSUE)**.
 
 ---
-
-*Generated on 2026-02-28*
