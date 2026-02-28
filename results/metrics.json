@@ -1,0 +1,74 @@
+{
+  "simulation": {
+    "n_simulations": 10000,
+    "horizon_days": 252,
+    "initial_fx_rate": 377.0,
+    "initial_refi_rate": 6.5,
+    "seed": 42
+  },
+  "model_parameters": {
+    "fx_gbm": {
+      "mu": -7.297223921873437e-05,
+      "sigma": 0.00404169436019367
+    },
+    "vasicek": {
+      "kappa": 0.058783268255464385,
+      "theta": 6.553636190112619,
+      "sigma_r": 0.5821168729949785
+    },
+    "correlation_rho": -0.050906796250352306
+  },
+  "var_results": {
+    "fx_usd_amd": {
+      "90pct": {
+        "var_amd": -37.14,
+        "var_pct": -9.85,
+        "cvar_amd": -46.82
+      },
+      "95pct": {
+        "var_amd": -44.52,
+        "var_pct": -11.81,
+        "cvar_amd": -52.9
+      },
+      "99pct": {
+        "var_amd": -57.91,
+        "var_pct": -15.36,
+        "cvar_amd": -65.05
+      }
+    },
+    "refinancing_rate": {
+      "90pct": {
+        "var_pp": -2.1556,
+        "var_bps": -215.56,
+        "cvar_pp": -2.9636
+      },
+      "95pct": {
+        "var_pp": -2.7416,
+        "var_bps": -274.16,
+        "cvar_pp": -3.4992
+      },
+      "99pct": {
+        "var_pp": -4.0174,
+        "var_bps": -401.74,
+        "cvar_pp": -4.5713
+      }
+    },
+    "combined_portfolio": {
+      "90pct": {
+        "var_amd": -39.86,
+        "var_pct": -9.93,
+        "cvar_amd": -50.8
+      },
+      "95pct": {
+        "var_amd": -48.51,
+        "var_pct": -12.08,
+        "cvar_amd": -57.64
+      },
+      "99pct": {
+        "var_amd": -63.8,
+        "var_pct": -15.89,
+        "cvar_amd": -71.43
+      }
+    }
+  }
+}
